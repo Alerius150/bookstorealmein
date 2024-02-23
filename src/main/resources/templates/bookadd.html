@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<link type="text/css" rel="stylesheet" href="../static/css/bookstore.css" th:href="@{__${@Pages.RESCSS}__/bookstore.css}" />
+	<link type="text/css" rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{__${@Pages.RESCSS}__/bootstrap.min.css}" />
+
+	<title th:text="${#messages.msgOrNull('page.title.browser.add')} ?: 'page.title.browser.add'">
+	page.title.browser.add
+	</title>
+
+</head>
+
+<body>
+
+	<div style="display: flex;">
+		<div class="col-md-4 mb-3">
+
+			<h1 th:text="${#messages.msgOrNull('page.title.webform.add')} ?: 'page.title.webform.add'">
+			page.title.webform.add
+			</h1>
+
+			<form th:object="${book}" action="#" th:action="@{__${addpage}__}" method="post">
+		
+				<th:block th:replace="fragments/bookfields :: bookfields"/>
+
+				<button class="btn btn-primary" type="submit"
+				th:text="${#messages.msgOrNull('button.book.add')} ?: 'button.book.add'">
+				button.book.add
+				</button>
+			</form>
+
+			<br>
+
+			<a class="btn btn-success" th:href="@{__${@Pages.LIST}__}"
+			th:text="${#messages.msgOrNull('button.page.list.return')} ?: 'button.page.list.return'">
+			button.page.list.return
+			</a>
+
+		</div>
+		<th:block th:replace="fragments/loginout :: loginout"/>
+	</div>
+	<th:block th:insert="fragments/footerpart :: footerpart"/>
+</body>
+</html>

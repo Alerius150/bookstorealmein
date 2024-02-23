@@ -1,0 +1,35 @@
+/* Pekka Helenius <fincer89@hotmail.com>, Fjordtek 2020 */
+
+.bookform-section {
+	border-top: 1px dotted #888;
+	padding-top: 1.5em;
+}
+
+.apiref-table-right {
+	width: 50%;
+}
+
+.apiref-table-title {
+	background-color: #48C;
+	color: #FFF;
+}
+
+#bookstore-topform-base {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#bookstore-loginout {
+	text-align: right;
+	margin: 0.5em 2em;
+}
+
+.checkbox-base {
+	display: flex;
+	/*justify-content: space-between;*/
+}
+
+.checkbox-box {
+	margin-left: 7.5em;
+}

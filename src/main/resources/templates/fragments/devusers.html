@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<link type="text/css" rel="stylesheet" href="../../static/css/bookstore.css" />
+	<link type="text/css" rel="stylesheet" href="../../static/css/bootstrap.min.css" />
+</head>
+
+<body>
+
+	<th:block th:fragment="devusers">
+		<style>
+		#devtable th, td {
+			padding: 5px;
+		}
+		</style>
+
+		<div style="position: absolute; margin-right: 1em;" class="mt-5">
+			<p>Login examples (development only):</p>
+			<table id="devtable" border="1">
+				<tbody>
+					<tr>
+						<th>User name</th>
+						<th>Password</th>
+						<th>Permissions</th>
+					</tr>
+					<tr>
+						<td>admin</td>
+						<td>admin</td>
+						<td>All (delete books, access REST API, view REST API help page, etc.)</td>
+					</tr>
+					<tr>
+						<td>helpdesk</td>
+						<td>helpdesk</td>
+						<td>Book edits (no price edits or publishing)</td>
+					</tr>
+					<tr>
+						<td>salesmanager</td>
+						<td>salesmanager</td>
+						<td>Book edits and additions</td>
+					</tr>
+					<tr>
+						<td>user</td>
+						<td>user</td>
+						<td>View published books</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</th:block>
+</body>
+</html>
