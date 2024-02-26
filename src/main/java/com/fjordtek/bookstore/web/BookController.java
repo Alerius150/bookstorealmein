@@ -214,7 +214,7 @@ public class BookController {
 
 		bookRepository.save(book);
 
-		// Manually call a book event handler. Is there a better way to do this?
+
 		bookEventHandler.handleAfterCreate(book);
 
 		return "redirect:" + env.getProperty("page.url.list");

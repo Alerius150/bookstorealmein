@@ -97,21 +97,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 			httpSecurity
 //			.addFilterAfter(new BookSameSiteCookieFilter(), BasicAuthenticationFilter.class)
-			.authorizeRequests()
-				.antMatchers(
-					env.getProperty("spring.h2.console.path")    + "/**",
-					env.getProperty("page.url.dev")              + "/**",
-					env.getProperty("page.url.index"),
-					env.getProperty("page.url.list"),
-					env.getProperty("page.url.error"),
-					env.getProperty("page.url.resources.css")    + "/**",
-					env.getProperty("page.url.resources.js")     + "/**",
-					env.getProperty("page.url.resources.images") + "/**"
+					.authorizeRequests()
+					.antMatchers(
+							env.getProperty("spring.h2.console.path"),
+							env.getProperty("page.url.dev"),
+							env.getProperty("page.url.index"),
+							env.getProperty("page.url.list"),
+							env.getProperty("page.url.error"),
+							env.getProperty("page.url.resources.css"),
+							env.getProperty("page.url.resources.js"),
+							env.getProperty("page.url.resources.images")
 //					"/favicon.ico",
 					).permitAll()
 				.antMatchers(
-						env.getProperty("page.url.apiref")       + "/**"
-						)
+						env.getProperty("page.url.apiref"))
 					.hasAuthority(env.getProperty("auth.authority.admin"))
 				.anyRequest()
 				.authenticated()
@@ -122,7 +121,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 					.successHandler(new BookStoreAuthenticationSuccessHandler())
 					.failureHandler(new BookStoreAuthenticationFailureHandler(env, msg))
 					.loginProcessingUrl(env.getProperty("page.url.login"))
-					.loginPage(env.getProperty("page.url.list"))
+
 					.defaultSuccessUrl(env.getProperty("page.url.list"))
 					.permitAll()
 			.and()
